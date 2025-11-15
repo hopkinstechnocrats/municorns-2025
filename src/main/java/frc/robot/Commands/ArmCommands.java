@@ -27,10 +27,17 @@ public class ArmCommands extends Command {
     public static Command armBrakeC(ArmSubsystem arm){
       return Commands.run(
         () -> {
-          arm.armBrake();
-      }, arm);
+            arm.armBrake();
+          },
+          arm);
     }
 
-
+    public static Command armBrakeM(ArmSubsystem arm){
+        return Commands.run(
+            () -> {
+                arm.moveArm(Constants.armBrakeSpeed);
+            },
+            arm);
+    }
 
 }
