@@ -14,15 +14,13 @@ public class ArmSubsystem extends SubsystemBase{
         armMotor.setNeutralMode(NeutralMode.Brake);
     }
 
-    public void raiseArm(){
-        armMotor.set(Constants.armSpeed);
+    public void moveArm(double armSpeed){
+        armMotor.set(armSpeed);
     
     }
-    public void lowerArm(){
-        armMotor.set(-Constants.armSpeed);
-    }
+   
     //TODO:is motor spin =0 the same as brake
-    public void brake(){
+    public void armBrake(){
         armMotor.stopMotor();
     }
 }
