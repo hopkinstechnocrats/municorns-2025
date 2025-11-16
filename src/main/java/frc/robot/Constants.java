@@ -27,4 +27,7 @@ public final class Constants {
     The number is negative because xbox controllers are down-right positve
     */
     public static final double maxMotorOutput = -0.55;
+
+    public static double intakeSpeed = .2;
+    public static double ejectSpeed = .5;
 }

@@ -9,8 +9,11 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
+import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import frc.robot.Commands.IntakeCommands;
 import frc.robot.subsystems.DriveSubsystem;
+import frc.robot.subsystems.IntakeSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 
 
@@ -24,9 +27,11 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final DriveSubsystem driveSubsystem = new DriveSubsystem();
 
-  private final XboxController driveController = new XboxController(Constants.driverXboxControllerPort);
+  private final CommandXboxController driveController = new CommandXboxController(Constants.driverXboxControllerPort);
   
-  private final XboxController operatorController = new XboxController(Constants.operatorXboxControllerPort);
+  private final CommandXboxController operatorController = new CommandXboxController(Constants.operatorXboxControllerPort);
+
+  private final IntakeSubsystem intakeSubsystem = new IntakeSubsystem();
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -50,11 +55,8 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    JoystickButton aButton = new JoystickButton(operatorController, 1);
-    JoystickButton bButton = new JoystickButton(operatorController, 2);
-    JoystickButton aDriverButton = new JoystickButton(driveController, 1);
-    JoystickButton bDriverButton = new JoystickButton(driveController, 2);
-    
+    operatorController.x().onTrue(IntakeCommands.intake(intakeSubsystem).withTimeout(1));
+    operatorController.y().onTrue(IntakeCommands.eject(intakeSubsystem).withTimeout(1));
   }
    
   
