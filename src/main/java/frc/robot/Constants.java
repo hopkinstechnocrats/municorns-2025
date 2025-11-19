@@ -14,10 +14,10 @@ package frc.robot;
  */
 public final class Constants {
     // The CAN ID is the device ID of each of the motors
-    public static final int rightLeaderCANID = 6;
-    public static final int rightFollowerCANID = 5;
-    public static final int leftLeaderCANID = 7;
-    public static final int leftFollowerCANID = 8;
+    public static final int rightLeaderCANID = 8;
+    public static final int rightFollowerCANID = 7;
+    public static final int leftLeaderCANID = 5;
+    public static final int leftFollowerCANID = 6;
     //The controller ports can be changed in driverstation
     public static final int driverXboxControllerPort = 0;
     public static final int operatorXboxControllerPort = 1;
