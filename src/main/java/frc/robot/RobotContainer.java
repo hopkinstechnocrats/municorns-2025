@@ -57,6 +57,8 @@ public class RobotContainer {
   private void configureButtonBindings() {
     operatorController.a().whileTrue(ArmCommands.armUp(armSubsystem));
     operatorController.b().whileTrue(ArmCommands.armDown(armSubsystem));
+    operatorController.y().whileTrue(ArmCommands.armBrakeM(armSubsystem));
+    operatorController.x().whileTrue(ArmCommands.armBrakeC(armSubsystem));
     //TODO: test robo to see if brake code is needed
 
   }

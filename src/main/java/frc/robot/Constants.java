@@ -30,7 +30,7 @@ public final class Constants {
     public static final double armSpeed = .1;
 
     //for the arm subsystem 
-    public static final double armUpSpeed = .1;  //TODO: is up positive or negative?
-    public static final double armDownSpeed = -.1;
+    public static final double armUpSpeed = .25;  //TODO: is up positive or negative?
+    public static final double armDownSpeed = -.25;
     public static final double armBrakeSpeed = 0;
 }
