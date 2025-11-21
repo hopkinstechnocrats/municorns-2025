@@ -9,7 +9,7 @@ import frc.robot.Constants;
 public class ArmSubsystem extends SubsystemBase{
     WPI_TalonSRX armMotor;
     public ArmSubsystem(){
-        armMotor = new WPI_TalonSRX(10);
+        armMotor = new WPI_TalonSRX(Constants.armMotorCANID);
         armMotor.configFactoryDefault();
         armMotor.setNeutralMode(NeutralMode.Brake);
     }
