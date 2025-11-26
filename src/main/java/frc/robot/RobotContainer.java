@@ -55,11 +55,15 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
+    // hold/move
     operatorController.a().whileTrue(ArmCommands.armUp(armSubsystem));
     operatorController.b().whileTrue(ArmCommands.armDown(armSubsystem));
-    operatorController.a().whileFalse(ArmCommands.armBrake(armSubsystem));
+    operatorController.a().whileFalse(ArmCommands.armBrake(armSubsystem));   //TODO: conflicting a=true b=false
     operatorController.b().whileFalse(ArmCommands.armBrake(armSubsystem));
 
+    // push/gotopos
+    //operatorController.a().whileTrue(ArmCommands.armUp(armSubsystem).withTimeout(1));
+    //operatorController.b().whileTrue(ArmCommands.armDown(armSubsystem).withTimeout(1));
   }
    
   
