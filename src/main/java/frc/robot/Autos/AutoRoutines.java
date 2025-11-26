@@ -13,6 +13,8 @@ import frc.robot.Commands.DriveCommands;
 
 public class AutoRoutines {
     private final DriveSubsystem driveSubsystem = new DriveSubsystem();
+    //private final ArmSubsystem armSubsystem     = new ArmSubsystem();
+    //private final IntakeSubsystem intakeSubsystem = new intakeSubsystem();
     SendableChooser<Command> autoChooser        = new SendableChooser<>(); 
 
     public Command moveForward(double driveTime) {return DriveCommands.drive(driveSubsystem, 1, 1).withTimeout(driveTime);};
