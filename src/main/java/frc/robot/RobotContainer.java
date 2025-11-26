@@ -57,8 +57,8 @@ public class RobotContainer {
   private void configureButtonBindings() {
     operatorController.a().whileTrue(ArmCommands.armUp(armSubsystem));
     operatorController.b().whileTrue(ArmCommands.armDown(armSubsystem));
-    operatorController.y().whileTrue(ArmCommands.armBrake(armSubsystem));
-    
+    operatorController.a().whileFalse(ArmCommands.armBrake(armSubsystem));
+    operatorController.b().whileFalse(ArmCommands.armBrake(armSubsystem));
 
   }
    
