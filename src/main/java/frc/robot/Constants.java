@@ -39,5 +39,5 @@ public final class Constants {
     //for the arm subsystem 
     public static final double armUpSpeed = -.4;  //positive is down
     public static final double armDownSpeed = .1;
-    public static final double armBrakeSpeed = -.05;
+    public static final double armBrakeSpeed = -.1;
 }
