@@ -11,9 +11,11 @@ import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import frc.robot.Commands.IntakeCommands;
 import frc.robot.Commands.ArmCommands;
 import frc.robot.subsystems.ArmSubsystem;
 import frc.robot.subsystems.DriveSubsystem;
+import frc.robot.subsystems.IntakeSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 
 
@@ -27,11 +29,14 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final DriveSubsystem driveSubsystem = new DriveSubsystem();
 
-  private final ArmSubsystem armSubsystem = new ArmSubsystem();
-
   private final CommandXboxController driveController = new CommandXboxController(Constants.driverXboxControllerPort);
   
   private final CommandXboxController operatorController = new CommandXboxController(Constants.operatorXboxControllerPort);
+
+  private final IntakeSubsystem intakeSubsystem = new IntakeSubsystem();
+  
+  private final ArmSubsystem armSubsystem = new ArmSubsystem();
+
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -45,16 +50,19 @@ public class RobotContainer {
                     }
             , driveSubsystem)
     );
+    intakeSubsystem.setDefaultCommand(
+            new RunCommand(
+                    () -> {
+                    intakeSubsystem.intake(0);
+                  }, intakeSubsystem)
+    );
+    
   
   }
 
-  /**
-   * Use this method to define your button->command mappings. Buttons can be created by
-   * instantiating a {@link GenericHID} or one of its subclasses ({@link
-   * edu.wpi.first.wpilibj.Joystick} or {@link XboxController}), and then passing it to a {@link
-   * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
-   */
   private void configureButtonBindings() {
+    operatorController.x().whileTrue(IntakeCommands.intake(intakeSubsystem));
+    operatorController.y().whileTrue(IntakeCommands.eject(intakeSubsystem));
     // hold/move
     operatorController.a().whileTrue(ArmCommands.armUp(armSubsystem));
     operatorController.b().whileTrue(ArmCommands.armDown(armSubsystem));

@@ -18,6 +18,7 @@ public final class Constants {
     public static final int rightFollowerCANID = 5;
     public static final int leftLeaderCANID = 7;
     public static final int leftFollowerCANID = 8;
+    public static final int intakeMotorCANID = 11;
 
     public static final int armMotorCANID = 10;
     
@@ -30,6 +31,9 @@ public final class Constants {
     The number is negative because xbox controllers are down-right positve
     */
     public static final double maxMotorOutput = -0.55;
+
+    public static double intakeSpeed = .4;
+    public static double ejectSpeed = -.55;
     public static final double armSpeed = .1;
 
     //for the arm subsystem 
