@@ -19,6 +19,9 @@ public final class Constants {
     public static final int leftLeaderCANID = 7;
     public static final int leftFollowerCANID = 8;
     public static final int intakeMotorCANID = 11;
+
+    public static final int armMotorCANID = 10;
+    
     //The controller ports can be changed in driverstation
     public static final int driverXboxControllerPort = 0;
     public static final int operatorXboxControllerPort = 1;
@@ -31,4 +34,10 @@ public final class Constants {
 
     public static double intakeSpeed = .4;
     public static double ejectSpeed = -.55;
+    public static final double armSpeed = .1;
+
+    //for the arm subsystem 
+    public static final double armUpSpeed = -.25;  //positive is down
+    public static final double armDownSpeed = .25;
+    public static final double armBrakeSpeed = -.05;
 }

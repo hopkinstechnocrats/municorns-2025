@@ -12,6 +12,8 @@ import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.Commands.IntakeCommands;
+import frc.robot.Commands.ArmCommands;
+import frc.robot.subsystems.ArmSubsystem;
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.IntakeSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -32,6 +34,9 @@ public class RobotContainer {
   private final CommandXboxController operatorController = new CommandXboxController(Constants.operatorXboxControllerPort);
 
   private final IntakeSubsystem intakeSubsystem = new IntakeSubsystem();
+  
+  private final ArmSubsystem armSubsystem = new ArmSubsystem();
+
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -58,6 +63,15 @@ public class RobotContainer {
   private void configureButtonBindings() {
     operatorController.x().whileTrue(IntakeCommands.intake(intakeSubsystem));
     operatorController.y().whileTrue(IntakeCommands.eject(intakeSubsystem));
+    // hold/move
+    operatorController.a().whileTrue(ArmCommands.armUp(armSubsystem));
+    operatorController.b().whileTrue(ArmCommands.armDown(armSubsystem));
+    operatorController.a().whileFalse(ArmCommands.armBrake(armSubsystem));   //TODO: conflicting a=true b=false
+    operatorController.b().whileFalse(ArmCommands.armBrake(armSubsystem));
+
+    // push/gotopos
+    //operatorController.a().whileTrue(ArmCommands.armUp(armSubsystem).withTimeout(1));
+    //operatorController.b().whileTrue(ArmCommands.armDown(armSubsystem).withTimeout(1));
   }
    
   
