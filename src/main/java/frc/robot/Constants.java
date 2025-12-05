@@ -32,12 +32,12 @@ public final class Constants {
     */
     public static final double maxMotorOutput = 0.55;
 
-    public static double intakeSpeed = .4;
+    public static double intakeSpeed = .6;
     public static double ejectSpeed = -.55;
     public static final double armSpeed = .1;
 
     //for the arm subsystem 
-    public static final double armUpSpeed = -.25;  //positive is down
-    public static final double armDownSpeed = .25;
+    public static final double armUpSpeed = -.4;  //positive is down
+    public static final double armDownSpeed = .1;
     public static final double armBrakeSpeed = -.05;
 }
