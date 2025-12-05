@@ -18,6 +18,7 @@ public final class Constants {
     public static final int rightFollowerCANID = 5;
     public static final int leftLeaderCANID = 7;
     public static final int leftFollowerCANID = 8;
+    public static final int intakeMotorCANID = 11;
     //The controller ports can be changed in driverstation
     public static final int driverXboxControllerPort = 0;
     public static final int operatorXboxControllerPort = 1;
@@ -28,6 +29,6 @@ public final class Constants {
     */
     public static final double maxMotorOutput = -0.55;
 
-    public static double intakeSpeed = .2;
-    public static double ejectSpeed = .5;
+    public static double intakeSpeed = .4;
+    public static double ejectSpeed = -.55;
 }

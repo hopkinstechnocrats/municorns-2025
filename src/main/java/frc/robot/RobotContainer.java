@@ -45,18 +45,19 @@ public class RobotContainer {
                     }
             , driveSubsystem)
     );
+    intakeSubsystem.setDefaultCommand(
+            new RunCommand(
+                    () -> {
+                    intakeSubsystem.intake(0);
+                  }, intakeSubsystem)
+    );
+    
   
   }
 
-  /**
-   * Use this method to define your button->command mappings. Buttons can be created by
-   * instantiating a {@link GenericHID} or one of its subclasses ({@link
-   * edu.wpi.first.wpilibj.Joystick} or {@link XboxController}), and then passing it to a {@link
-   * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
-   */
   private void configureButtonBindings() {
-    operatorController.x().onTrue(IntakeCommands.intake(intakeSubsystem).withTimeout(1));
-    operatorController.y().onTrue(IntakeCommands.eject(intakeSubsystem).withTimeout(1));
+    operatorController.x().whileTrue(IntakeCommands.intake(intakeSubsystem));
+    operatorController.y().whileTrue(IntakeCommands.eject(intakeSubsystem));
   }
    
   

@@ -9,7 +9,7 @@ import frc.robot.Constants;
 public class IntakeSubsystem extends SubsystemBase{
     WPI_TalonSRX intakeMotor;
     public IntakeSubsystem(){
-        intakeMotor = new WPI_TalonSRX(0); //TODO: get CANID pt 2
+        intakeMotor = new WPI_TalonSRX(Constants.intakeMotorCANID); //TODO: get CANID pt 2
         intakeMotor.configFactoryDefault();
         intakeMotor.setNeutralMode(NeutralMode.Brake);
     }
