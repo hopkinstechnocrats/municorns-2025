@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.Commands.IntakeCommands;
 import frc.robot.Commands.ArmCommands;
+import frc.robot.Commands.DriveCommands;
 import frc.robot.subsystems.ArmSubsystem;
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.IntakeSubsystem;
@@ -89,7 +90,7 @@ public class RobotContainer {
   public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
     return new SequentialCommandGroup(
-      //put commands here
+      DriveCommands.drive(driveSubsystem, .8, .8).withTimeout(3)
     );
   }
 }
