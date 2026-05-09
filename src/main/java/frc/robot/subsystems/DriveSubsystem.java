@@ -51,8 +51,7 @@ public class DriveSubsystem extends SubsystemBase {
     leftFollower.follow(leftLeader);
     rightFollower.follow(rightLeader);
 
-    // Set the left motors to inverted because they face the opposite direction of the right motors
-    rightFollower.setInverted(true);
+    // Set the left motors to inverted because they face the opposite direction of the right mo
     leftLeader.setInverted(true);
     leftFollower.setInverted(true);
     
